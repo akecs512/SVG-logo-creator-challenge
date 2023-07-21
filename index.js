@@ -22,12 +22,8 @@ inquirer
       type: "input",
       name: "shapeColor",
       message: "What color do you want your shape?",
-    },
-    {
-      type: "input",
-      name: "brandInitials",
-      message: "What are the 3 letters to use for your brand initials?",
-    },
+    }
+  
   ])
   .then((answers) => {
     const svg = new svg(
