@@ -51,7 +51,7 @@ if (brandInitials.length > 3) {
 }
 const SVGtextString = `<text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${brandInitials}</text>`;
 const SVGContainer = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">${SVGshape}${SVGtextString}</svg>`;
-fs.writeFile("logo.svg",SVGContainer, (error) => {if (error) console.log(error)})
+fs.writeFile("./out/logo.svg",SVGContainer, (error) => {if (error) console.log(error)})
 })
 
   
