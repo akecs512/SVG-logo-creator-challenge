@@ -27,32 +27,30 @@ inquirer
   
   ])
   .then(({brandInitials, textColor, shape, shapeColor}) => {
-    let SVGlogo;
+    let SVGshape;
+    console.log(shape)
     switch(shape){
       case "Circle":
-        SVGlogo = `<circle cx="150" cy="100" r="80" fill="${shapeColor}" />`;
-        
-        break;
+        SVGshape = `<circle cx="150" cy="100" r="80" fill="${shapeColor}" />`;
+         break;
 
-      // case "square":
-      //     shape = new Square();
-      //     break;
+      case "Square":
+          SVGshape = `<rect x="90" y="40" width="120" height="120" fill="${shapeColor}" />`;
+          break;
 
-      // case "triangle":
-      //     shape = new Triangle();
-      //     break;
+      case "Triangle":
+          SVGshape = `<polygon points="150, 18 244, 182 56, 182" fill="${shapeColor}" />`;
+          break;
 
        default:
+        console.error("unknown shape")
             break;
     }
-// create a variable to hold the SVG text string with the proper ${brandInitials} and ${textColor} 
-// create the SVG container with the ${shape} ${SVGtextString}
-// write file with fs
 if (brandInitials.length > 3) {
   throw new Error("Text must not exceed 3 characters.");
 }
 const SVGtextString = `<text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${brandInitials}</text>`;
-const SVGContainer = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">${SVGlogo}${SVGtextString}</svg>`;
+const SVGContainer = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">${SVGshape}${SVGtextString}</svg>`;
 fs.writeFile("logo.svg",SVGContainer, (error) => {if (error) console.log(error)})
 })
 
