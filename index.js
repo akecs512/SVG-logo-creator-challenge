@@ -28,7 +28,7 @@ inquirer
   ])
   .then(({brandInitials, textColor, shape, shapeColor}) => {
     let SVGshape;
-    console.log(shape)
+    console.log("Generated logo.SVG")
     switch(shape){
       case "Circle":
         SVGshape = `<circle cx="150" cy="100" r="80" fill="${shapeColor}" />`;
